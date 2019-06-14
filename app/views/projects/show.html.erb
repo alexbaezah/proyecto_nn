@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<% form_with mode: [project, Worker.new], url: project_add_worker_path(@project) do |f| %>
+<%= f.select_tag @workers_array %>
+<%= f.submit %>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+<% end %>
